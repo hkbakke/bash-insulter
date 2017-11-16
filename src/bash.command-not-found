@@ -29,6 +29,7 @@ command_not_found_handle () {
         "This is not Windows"
         "Perhaps you should leave the command line alone..."
         "Please step away from the keyboard!"
+        "error code: 1D10T"
     )
 
     # Seed "random" generator
