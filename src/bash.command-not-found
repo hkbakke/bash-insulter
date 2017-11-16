@@ -24,7 +24,7 @@ command_not_found_handle () {
         "Come on! You can do it!"
         "Nice try."
         "What if... you type an actual command the next time!"
-        "What if I told you... that was not a command"
+        "What if I told you... it is possible to type valid commands."
         "Y u no speak computer???"
         "This is not Windows"
         "Perhaps you should leave the command line alone..."
