@@ -19,6 +19,7 @@ command_not_found_handle () {
         "Inkompetanse er også en kompetanse"
         "Dårlig."
         "Fake it till you make it!"
+        "What is this...? Amature hour!?"
     )
 
     # Seed "random" generator
