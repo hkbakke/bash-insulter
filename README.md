@@ -5,8 +5,8 @@ Change insults as needed :)
 
 # Installation
 
-    git clone https://github.com/hkbakke/bash-insulter.git
-    sudo cp src/bash.command-not-found /etc/bash.command-not-found
+    git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
+    sudo cp bash-insulter/src/bash.command-not-found /etc/bash.command-not-found
 
 Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc`:
 ```
