@@ -4,17 +4,17 @@ Randomly insults the user when typing wrong command.
 Change insults as needed :)
 
 ```bash
-kevin@ubuntu:~ $ sl
+noob@bender:~ $ sl
 
   Y u no speak computer???
 
 -bash: sl: command not found
-kevin@ubuntu:~ $ gti status
+noob@bender:~ $ gti status
 
   This is why nobody likes you.
 
 -bash: gti: command not found
-kevin@ubuntu:~ $ sp aux
+noob@bender:~ $ sp aux
 
   Go outside.
 
