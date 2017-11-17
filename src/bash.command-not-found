@@ -34,6 +34,8 @@ command_not_found_handle () {
         "Pro tip: type a valid command!"
         "Go outside."
         "This is not a search engine."
+        "(╯°□°）╯︵ ┻━┻"
+        "¯\_(ツ)_/¯"
     )
 
     # Seed "random" generator
