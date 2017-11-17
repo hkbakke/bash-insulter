@@ -1,5 +1,6 @@
 command_not_found_handle () {
-    local INSULTS=(
+    local INSULTS 
+        INSULTS=(
         "Boooo!"
         "Don't you know anything?"
         "RTFM!"
