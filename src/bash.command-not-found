@@ -41,6 +41,8 @@ command_not_found_handle () {
         "Why are you doing this to me?!"
         "Don't you have anything better to do?!"
         "I am _seriously_ considering 'rm -rf /'-ing myself..."
+        "This is why you get to see your children only once a month."
+        "This is why nobody likes you."
     )
 
     # Seed "random" generator
