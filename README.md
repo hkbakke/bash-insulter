@@ -3,6 +3,24 @@ Randomly insults the user when typing wrong command.
 
 Change insults as needed :)
 
+```bash
+kevin@ubuntu:~ $ sl
+
+  Y u no speak computer???
+
+-bash: sl: command not found
+kevin@ubuntu:~ $ gti status
+
+  This is why nobody likes you.
+
+-bash: gti: command not found
+kevin@ubuntu:~ $ sp aux
+
+  Go outside.
+
+-bash: sp: command not found
+```
+
 # Installation
 
     git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
