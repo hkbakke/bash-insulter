@@ -40,6 +40,7 @@ command_not_found_handle () {
         "Perhaps computers is not for you..."
         "Why are you doing this to me?!"
         "Don't you have anything better to do?!"
+        "I am _seriously_ considering 'rm -rf /'-ing myself..."
     )
 
     # Seed "random" generator
