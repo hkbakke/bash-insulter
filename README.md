@@ -21,9 +21,11 @@ noob@bender:~ $ sp aux
 -bash: sp: command not found
 ```
 
-# Installation
-The script should work for modern Bash and Zsh shells.
+# Compatibility
+* Bash v4 and newer
+* Zsh
 
+# Installation
 
     # Method 1 - know what you are doing
     git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
