@@ -1,4 +1,4 @@
-command_not_found_handle () {
+insulter () {
     local INSULTS
     INSULTS=(
         "Boooo!"
@@ -76,3 +76,16 @@ command_not_found_handle () {
     # Return the exit code normally returned on invalid command
     return 127
 }
+
+case "${SHELL}" in
+    */zsh)
+        command_not_found_handler() {
+            insulter
+        }
+        ;;
+    */bash)
+        command_not_found_handle() {
+            insulter
+        }
+        ;;
+esac
