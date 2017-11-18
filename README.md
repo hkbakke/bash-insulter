@@ -1,6 +1,8 @@
 # bash-insulter
 Randomly insults the user when typing wrong command.
 
+Should work for modern Bash and Zsh shells.
+
 Change insults as needed :)
 
 ```bash
@@ -30,7 +32,7 @@ noob@bender:~ $ sp aux
     # Method 2 - I don't care, insult me!
     sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/bash.command-not-found
 
-Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc`:
+Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc` or any of the other locations where you can configure your shell automatically during login (zsh have different config files):
 ```
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
