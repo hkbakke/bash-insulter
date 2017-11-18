@@ -1,8 +1,6 @@
 # bash-insulter
 Randomly insults the user when typing wrong command.
 
-Should work for modern Bash and Zsh shells.
-
 Change insults as needed :)
 
 ```bash
@@ -24,6 +22,8 @@ noob@bender:~ $ sp aux
 ```
 
 # Installation
+The script should work for modern Bash and Zsh shells.
+
 
     # Method 1 - know what you are doing
     git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
