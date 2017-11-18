@@ -23,8 +23,12 @@ noob@bender:~ $ sp aux
 
 # Installation
 
+    # Method 1 - know what you are doing
     git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
     sudo cp bash-insulter/src/bash.command-not-found /etc/
+    
+    # Method 2 - I don't care, insult me!
+    sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/bash.command-not-found
 
 Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc`:
 ```
