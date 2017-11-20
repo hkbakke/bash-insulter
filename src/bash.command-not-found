@@ -81,42 +81,53 @@ function_exists () {
     return $?
 }
 
+#
+# The idea below is to copy any existing handlers to another function
+# name and insert the insulter in front of the old handler in the
+# new handler. By default, neither bash or zsh has has a handler function
+# defined, so the default behaviour is replicated.
+#
+# Also, ensure the handler is only copied once. If we do not ensure this
+# the handler would add itself recursively if this file happens to be
+# sourced multiple times in the same shell, resulting in a neverending
+# stream of insults.
+#
+
+#
 # Zsh
+#
 if function_exists command_not_found_handler; then
     if ! function_exists orig_command_not_found_handler; then
         eval "orig_$(declare -f command_not_found_handler)"
     fi
-
-    command_not_found_handler () {
-        print_insult
-        orig_command_not_found_handler "$@"
-    }
 else
-    command_not_found_handler () {
-        print_insult
-
-        # Return the standard error message
+    orig_command_not_found_handler () {
         echo "zsh: command not found: $1"
         return 127
     }
 fi
 
+command_not_found_handler () {
+    print_insult
+    orig_command_not_found_handler "$@"
+}
+
+
+#
 # Bash
+#
 if function_exists command_not_found_handle; then
     if ! function_exists orig_command_not_found_handle; then
         eval "orig_$(declare -f command_not_found_handle)"
     fi
-
-    command_not_found_handle () {
-        print_insult
-        orig_command_not_found_handle "$@"
-    }
 else
-    command_not_found_handle () {
-        print_insult
-
-        # Return the standard error message
+    orig_command_not_found_handle () {
         echo "$0: $1: command not found"
         return 127
     }
 fi
+
+command_not_found_handle () {
+    print_insult
+    orig_command_not_found_handle "$@"
+}
