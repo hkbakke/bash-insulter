@@ -1,10 +1,4 @@
-# Zsh
-command_not_found_handler () {
-    command_not_found_handle $@
-}
-
-# Bash
-command_not_found_handle () {
+print_insult () {
     local insults
     local selection
 
@@ -79,8 +73,50 @@ command_not_found_handle () {
     if [[ ${selection} -lt 1 ]]; then
         printf "\n  $(tput bold)$(tput setaf 1)$(shuf -n 1 -e "${insults[@]}")$(tput sgr0)\n\n"
     fi
-
-    # Return the standard exit code normally returned on invalid command
-    echo "command not found: $1"
-    return 127
 }
+
+function_exists () {
+    # Zsh returns 0 even on non existing functions with -F so use -f
+    declare -f $1 > /dev/null
+    return $?
+}
+
+# Zsh
+if function_exists command_not_found_handler; then
+    if ! function_exists orig_command_not_found_handler; then
+        eval "orig_$(declare -f command_not_found_handler)"
+    fi
+
+    command_not_found_handler () {
+        print_insult
+        orig_command_not_found_handler "$@"
+    }
+else
+    command_not_found_handler () {
+        print_insult
+
+        # Return the standard error message
+        echo "zsh: command not found: $1"
+        return 127
+    }
+fi
+
+# Bash
+if function_exists command_not_found_handle; then
+    if ! function_exists orig_command_not_found_handle; then
+        eval "orig_$(declare -f command_not_found_handle)"
+    fi
+
+    command_not_found_handle () {
+        print_insult
+        orig_command_not_found_handle "$@"
+    }
+else
+    command_not_found_handle () {
+        print_insult
+
+        # Return the standard error message
+        echo "$0: $1: command not found"
+        return 127
+    }
+fi
