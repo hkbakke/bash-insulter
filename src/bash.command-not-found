@@ -65,9 +65,6 @@ print_insult () {
         "How many times do I have to flush before you go away?"
     )
 
-    # Seed "random" generator
-    RANDOM=$(date +%s%N)
-
     # Only print the insults some of the time
     selection=$((${RANDOM}%2))
     if [[ ${selection} -lt 1 ]]; then
