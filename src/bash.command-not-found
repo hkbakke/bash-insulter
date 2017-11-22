@@ -1,8 +1,8 @@
-print_insult () {
-    local insults
+print_message () {
+    local messages
     local selection
 
-    insults=(
+    messages=(
         "Boooo!"
         "Don't you know anything?"
         "RTFM!"
@@ -65,12 +65,18 @@ print_insult () {
         "How many times do I have to flush before you go away?"
     )
 
-    # Only print the insults some of the time. RANDOM must be seeded to ensure it returns
+    # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
+    [[ -n ${CMD_NOT_FOUND_MSGS} ]] && messages=( "${CMD_NOT_FOUND_MSGS[@]}" )
+
+    # If CMD_NOT_FOUND_MSGS_APPEND array is populated append those to the existing messages
+    [[ -n ${CMD_NOT_FOUND_MSGS_APPEND} ]] && messages+=( "${CMD_NOT_FOUND_MSGS_APPEND[@]}" )
+
+    # Only print the message some of the time. RANDOM must be seeded to ensure it returns
     # different values on each iteration.
     RANDOM=$(date +"%N")
     selection=$((${RANDOM}%2))
     if [[ ${selection} -lt 1 ]]; then
-        printf "\n  $(tput bold)$(tput setaf 1)$(shuf -n 1 -e "${insults[@]}")$(tput sgr0)\n\n"
+        printf "\n  $(tput bold)$(tput setaf 1)$(shuf -n 1 -e "${messages[@]}")$(tput sgr0)\n\n"
     fi
 }
 
@@ -82,14 +88,14 @@ function_exists () {
 
 #
 # The idea below is to copy any existing handlers to another function
-# name and insert the insulter in front of the old handler in the
+# name and insert the message in front of the old handler in the
 # new handler. By default, neither bash or zsh has has a handler function
 # defined, so the default behaviour is replicated.
 #
 # Also, ensure the handler is only copied once. If we do not ensure this
 # the handler would add itself recursively if this file happens to be
 # sourced multiple times in the same shell, resulting in a neverending
-# stream of insults.
+# stream of messages.
 #
 
 #
@@ -107,7 +113,7 @@ else
 fi
 
 command_not_found_handler () {
-    print_insult
+    print_message
     orig_command_not_found_handler "$@"
 }
 
@@ -127,6 +133,6 @@ else
 fi
 
 command_not_found_handle () {
-    print_insult
+    print_message
     orig_command_not_found_handle "$@"
 }
