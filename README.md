@@ -55,8 +55,11 @@ It is probably cleanest to source a file populating the environment variable as 
     
 Then source this file before you source the script:
 ```
-if [ -f /etc/bash.command-not-found ]; then
+if [ -f /etc/bash.command-not-found-messages ]; then
     . /etc/bash.command-not-found-messages
+fi
+
+if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
 ```
