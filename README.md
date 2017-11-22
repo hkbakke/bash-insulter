@@ -41,3 +41,24 @@ if [ -f /etc/bash.command-not-found ]; then
 fi
 ```
 Login again and type some invalid commands for the effects to be visible.
+
+# Configuration
+bash-insulter can be customized, or even be made polite and nice, by populating `CMD_NOT_FOUND_MSGS` or `CMD_NOT_FOUND_MSGS_APPEND` environment variables. The values should be arrays. `CMD_NOT_FOUND_MSGS` replaces the default values, while `CMD_NOT_FOUND_MSGS_APPEND` appends more messages, typically used if you want to append more messages to the default ones.
+
+It is probably cleanest to source a file populating the environment variable as needed. In this example I create a file `/etc/bash.command-not-found-messages` with the following content:
+
+    CMD_NOT_FOUND_MSGS=(
+        "You are so smart!"
+        "You look pretty today!"
+        "I don't know what to say"
+    )
+    
+Then source this file before you source the script:
+```
+if [ -f /etc/bash.command-not-found ]; then
+    . /etc/bash.command-not-found-messages
+    . /etc/bash.command-not-found
+fi
+```
+
+Then logout and in again. The end result is that you will now use your messages instead of the default ones.
