@@ -25,6 +25,16 @@ noob@bender:~ $ sp aux
 * Bash v4 and newer
 * Zsh
 
+# Requirements
+
+For the bash-insulter to insult you properly, make sure your system has `command-not-found` installed.
+
+```bash
+sudo apt-get install command-not-found
+
+sudo update-command-not-found
+```
+
 # Installation
 
     # Method 1 - know what you are doing
