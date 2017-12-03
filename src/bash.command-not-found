@@ -1,8 +1,7 @@
 print_message () {
 
     local messages
-    local selectedMessage
-    local printOrNot
+    local message
 
     messages=(
         "Boooo!"
@@ -73,13 +72,14 @@ print_message () {
     # If CMD_NOT_FOUND_MSGS_APPEND array is populated append those to the existing messages
     [[ -n ${CMD_NOT_FOUND_MSGS_APPEND} ]] && messages+=( "${CMD_NOT_FOUND_MSGS_APPEND[@]}" )
 
-    # Only print the message some of the time. RANDOM must be seeded to ensure it returns
-    # different values on each iteration.
+    # Seed RANDOM with an integer of some length
     RANDOM=$(od -vAn -N4 -tu < /dev/urandom)
-    printOrNot=$((${RANDOM}%2))
-    if [[ ${printOrNot} -lt 1 ]]; then
-        selectedMessage=${messages[$RANDOM % ${#messages[@]}]}
-        printf "\n  $(tput bold)$(tput setaf 1)$selectedMessage$(tput sgr0)\n\n"
+
+    # Print a randomly selected message, but only about half the time to annoy the user a
+    # little bit less.
+    if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
+        message=${messages[${RANDOM} % ${#messages[@]}]}
+        printf "\n  $(tput bold)$(tput setaf 1)${message}$(tput sgr0)\n\n"
     fi
 }
 
