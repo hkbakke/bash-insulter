@@ -1,6 +1,8 @@
 print_message () {
+
     local messages
-    local selection
+    local selectedMessage
+    local printOrNot
 
     messages=(
         "Boooo!"
@@ -73,10 +75,11 @@ print_message () {
 
     # Only print the message some of the time. RANDOM must be seeded to ensure it returns
     # different values on each iteration.
-    RANDOM=$(date +"%N")
-    selection=$((${RANDOM}%2))
-    if [[ ${selection} -lt 1 ]]; then
-        printf "\n  $(tput bold)$(tput setaf 1)$(shuf -n 1 -e "${messages[@]}")$(tput sgr0)\n\n"
+    RANDOM=$(od -vAn -N4 -tu < /dev/urandom)
+    printOrNot=$((${RANDOM}%2))
+    if [[ ${printOrNot} -lt 1 ]]; then
+        selectedMessage=${messages[$RANDOM % ${#messages[@]}]}
+        printf "\n  $(tput bold)$(tput setaf 1)$selectedMessage$(tput sgr0)\n\n"
     fi
 }
 
