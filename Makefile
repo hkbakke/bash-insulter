@@ -13,6 +13,4 @@ install:
 	install -g root -o root -m 0444 -v src/bash.command-not-found ${SYSCONFDIR}/bash.command-not-found
 
 remove:
-	@echo Removing bash-insulter...
 	rm -fv ${SYSCONFDIR}/bash.command-not-found
-	@echo Removed!
