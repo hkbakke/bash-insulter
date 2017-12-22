@@ -11,7 +11,7 @@ all:
 
 install:
 	install -g root -o root -m 0444 -v src/bash.command-not-found ${SYSCONFDIR}/bash.command-not-found
-	[ -f src/bash.command-not-found-messages ] && install -g root -o root -m 0444 -v src/bash.command-not-found-messages
+	[ -f src/bash.command-not-found-messages ] && install -g root -o root -m 0444 -v src/bash.command-not-found-messages ${SYSCONFDIR}/bash.command-not-found-messages
 
 remove:
 	rm -fv ${SYSCONFDIR}/bash.command-not-found
