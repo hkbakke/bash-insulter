@@ -14,3 +14,5 @@ install:
 
 remove:
 	rm -fv ${SYSCONFDIR}/bash.command-not-found
+
+uninstall: remove
