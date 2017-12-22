@@ -5,7 +5,7 @@ all:
 	@echo
 	@echo make install
 	@echo
-	@echo To override the default install location, type:
+	@echo To install somewhere else, type:
 	@echo
 	@echo make SYSCONFDIR=/desired/install/path/here install
 
