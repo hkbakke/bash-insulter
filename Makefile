@@ -15,5 +15,6 @@ install:
 
 remove:
 	rm -fv ${SYSCONFDIR}/bash.command-not-found
+	[ -f ${SYSCONFDIR}/bash.command-not-found-messages ] && rm -fv ${SYSCONFDIR}/bash.command-not-found-messages
 
 uninstall: remove
