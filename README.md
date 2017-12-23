@@ -54,11 +54,14 @@ Then you can enable bash-insulter one of three ways:
 
     # Enable Method 3 - Enable for one user
     Edit your personal shell config (~/.bashrc , ~/.zshrc , ~/.profile , etc.) then add the following to the end:
+    if [ -f /etc/bash.command-not-found-messages ]; then
+        . /etc/bash.command-not-found-messages
+    fi
     if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
     fi
 
-After you enable bash-insulter, login again and type some invalid commands for the effects to be visible.
+After you enable bash-insulter, logout then login again and type some invalid commands for the effects to be visible.
 
 # Configuration
 bash-insulter can be customized, or even be made polite and nice, by populating `CMD_NOT_FOUND_MSGS` or `CMD_NOT_FOUND_MSGS_APPEND` environment variables. The values should be arrays. `CMD_NOT_FOUND_MSGS` replaces the default messages, while `CMD_NOT_FOUND_MSGS_APPEND` appends more messages to the existing ones.
@@ -71,7 +74,7 @@ It is probably cleanest to source a file populating the environment variable as 
         "I don't know what to say"
     )
     
-Then source this file before you source the script:
+Then source this file before you source the script (if you haven't done so already):
 ```
 if [ -f /etc/bash.command-not-found-messages ]; then
     . /etc/bash.command-not-found-messages
