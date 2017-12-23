@@ -1,0 +1,15 @@
+# If you would like to *replace* the default messages,
+# uncomment these then add your own messages in "quotes",
+# one per line.
+#CMD_NOT_FOUND_MSGS=(
+#    "Example1"
+#    "Example2"
+#)
+
+# If you would like to *add* to the messages used
+# (instead of replacing them), uncomment these then
+# add your own messages in "quotes", one per line.
+#CMD_NOT_FOUND_MSGS_APPEND=(
+#    "Example1"
+#    "Example2"
+#)
