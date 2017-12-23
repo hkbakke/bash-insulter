@@ -18,7 +18,6 @@ ifneq ($(SYSCONFDIR),"/etc/")
 	sed s,/etc/,${SYSCONFDIR}, src/profile.d/bash-insulter-old.sh > src/bash-insulter.sh
 endif
 	install -g root -o root -m 0444 -v src/bash.command-not-found ${SYSCONFDIR}/bash.command-not-found
-	[ -f src/bash.command-not-found-messages ] || touch src/bash.command-not-found-messages
 	install -g root -o root -m 0444 -v src/bash.command-not-found-messages ${SYSCONFDIR}/bash.command-not-found-messages
 	[ -d ${SYSCONFDIR}/profile.d/ ] || install -d -g root -o root -m0755 -v ${SYSCONFDIR}/profile.d/
 	install -g root -o root -m0755 -v src/profile.d/bash-insulter.sh ${SYSCONFDIR}/profile.d/bash-insulter.sh
