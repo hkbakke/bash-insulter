@@ -28,20 +28,20 @@ noob@bender:~ $ sp aux
 # Installation
 
     # Install Method 1 - 'make install'
-    git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
+    git clone https://github.com/ItchyBugReporter/bash-insulter.git bash-insulter
     cd bash-insulter
     sudo make install
     
     # Install Method 2 - Manually (I know what I am doing!)
-    git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
+    git clone https://github.com/ItchyBugReporter/bash-insulter.git bash-insulter
     sudo cp bash-insulter/src/bash.command-not-found /etc/
     sudo cp bash-insulter/src/bash.command-not-found-messages /etc/
     sudo cp bash-insulter/src/profile.d/bash-insulter.sh /etc/profile.d/bash-insulter.sh
 
     # Install Method 3 - Manually (I don't care, insult me!)
-    sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/bash.command-not-found
-    sudo wget -O /etc/bash.command-not-found-messages https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/bash.command-not-found-messages
-    sudo wget -O /etc/profile.d/bash-insulter.sh https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/profile.d/bash-insulter.sh
+    sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/ItchyBugReporter/bash-insulter/master/src/bash.command-not-found
+    sudo wget -O /etc/bash.command-not-found-messages https://raw.githubusercontent.com/ItchyBugReporter/bash-insulter/master/src/bash.command-not-found-messages
+    sudo wget -O /etc/profile.d/bash-insulter.sh https://raw.githubusercontent.com/ItchyBugReporter/bash-insulter/master/src/profile.d/bash-insulter.sh
 
 Then you can enable bash-insulter one of three ways:
 
