@@ -59,6 +59,9 @@ Then you can enable bash-insulter one of three ways:
 
     # Enable Method 3 - Enable for one user
     Edit your personal shell config (~/.bashrc , ~/.zshrc , ~/.profile , etc.) then add the following to the end:
+    if [ -f /etc/bash.command-not-found-messages ]; then
+        . /etc/bash.command-not-found-messages
+    fi
     if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
     fi
