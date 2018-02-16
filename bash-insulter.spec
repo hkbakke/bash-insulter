@@ -24,9 +24,6 @@ on your system. It will work from bash or zsh.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-# It seems Debian's rpmbuild isn't smart enough to do this automatically
-mkdir -p "$RPM_BUILD_ROOT/etc/profile.d"
-
 make install DESTDIR="$RPM_BUILD_ROOT"
 
 %clean

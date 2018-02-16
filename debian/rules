@@ -15,7 +15,6 @@ override_dh_auto_build:
 	dh_installdirs
 
 override_dh_auto_install:
-	mkdir -p debian/bash-insulter/etc/profile.d/
 	make DESTDIR=debian/bash-insulter install
 
 override_dh_auto_test:

@@ -18,9 +18,10 @@ ifneq ($(SYSCONFDIR),"/etc/")
 	cp -v src/profile.d/bash-insulter.sh src/profile.d/bash-insulter-old.sh
 	sed s,/etc/,${SYSCONFDIR}, src/profile.d/bash-insulter-old.sh > src/bash-insulter.sh
 endif
+	[ -d '${DESTDIR}${SYSCONFDIR}' ] || mkdir -pv '${DESTDIR}${SYSCONFDIR}'
+	[ -d '${DESTDIR}${SYSCONFDIR}/profile.d/' ] || mkdir -pv '${DESTDIR}${SYSCONFDIR}profile.d/'
 	install -m 0444 -v src/bash.command-not-found '${DESTDIR}${SYSCONFDIR}bash.command-not-found'
 	install -m 0444 -v src/bash.command-not-found-messages '${DESTDIR}${SYSCONFDIR}bash.command-not-found-messages'
-	[ -d '${DESTDIR}/${SYSCONFDIR}/profile.d/' ] || install -d -m 0755 -v '${DESTDIR}${SYSCONFDIR}profile.d/'
 	install -m 0755 -v src/profile.d/bash-insulter.sh '${DESTDIR}${SYSCONFDIR}profile.d/bash-insulter.sh'
 
 remove:
