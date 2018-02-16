@@ -1,0 +1,11 @@
+Package: bash-insulter
+Version: 0.0-1
+Architecture: all
+Maintainer: Kristopher John Gamrat <gamrat.kristopher@gmail.com>
+Installed-Size: 40
+Depends: bash (>= 4.0), zsh
+Section: shells
+Priority: optional
+Description: Insults you when you type a wrong command
+ bash-insulter insults you whenever you type a command that does not exist
+ on your system. It will work from bash or zsh.

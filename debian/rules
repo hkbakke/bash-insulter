@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+export DH_OPTIONS
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -rf debian/bash-insulter
+
+override_dh_auto_build:
+	dh_installdirs
+
+override_dh_auto_install:
+	mkdir -p debian/bash-insulter/etc/profile.d/
+	make DESTDIR=debian/bash-insulter install
+
+override_dh_auto_test:
+	true
+
+
