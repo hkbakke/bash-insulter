@@ -18,14 +18,14 @@ ifneq ($(SYSCONFDIR),"/etc/")
 	cp -v src/profile.d/bash-insulter.sh src/profile.d/bash-insulter-old.sh
 	sed s,/etc/,${SYSCONFDIR}, src/profile.d/bash-insulter-old.sh > src/bash-insulter.sh
 endif
-	install -g root -o root -m 0444 -v src/bash.command-not-found ${DESTDIR}/${SYSCONFDIR}/bash.command-not-found
-	install -g root -o root -m 0444 -v src/bash.command-not-found-messages ${DESTDIR}/${SYSCONFDIR}/bash.command-not-found-messages
-	[ -d ${DESTDIR}/${SYSCONFDIR}/profile.d/ ] || install -d -g root -o root -m0755 -v ${DESTDIR}/${SYSCONFDIR}/profile.d/
-	install -g root -o root -m0755 -v src/profile.d/bash-insulter.sh ${DESTDIR}/${SYSCONFDIR}/profile.d/bash-insulter.sh
+	install -g root -o root -m 0444 -v src/bash.command-not-found '${DESTDIR}/${SYSCONFDIR}/bash.command-not-found'
+	install -g root -o root -m 0444 -v src/bash.command-not-found-messages '${DESTDIR}/${SYSCONFDIR}/bash.command-not-found-messages'
+	[ -d '${DESTDIR}/${SYSCONFDIR}/profile.d/' ] || install -d -g root -o root -m0755 -v '${DESTDIR}/${SYSCONFDIR}/profile.d/'
+	install -g root -o root -m0755 -v src/profile.d/bash-insulter.sh '${DESTDIR}/${SYSCONFDIR}/profile.d/bash-insulter.sh'
 
 remove:
-	rm -fv ${DESTDIR}/${SYSCONFDIR}/bash.command-not-found
-	rm -fv ${DESTDIR}/${SYSCONFDIR}/bash.command-not-found-messages
-	rm -fv ${SYSCONFDIR}/profile.d/bash-insulter.sh
+	rm -fv '${DESTDIR}/${SYSCONFDIR}/bash.command-not-found'
+	rm -fv '${DESTDIR}/${SYSCONFDIR}/bash.command-not-found-messages'
+	rm -fv '${SYSCONFDIR}/profile.d/bash-insulter.sh'
 
 uninstall: remove
