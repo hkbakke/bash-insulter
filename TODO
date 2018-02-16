@@ -1,0 +1,5 @@
+ * Packaging scripts
+  - PKGBUILD (for Arch & friends)
+   -- Is there a non-systemd variant I can use for this?
+  - Gentoo (I know, I'm crazy...)
+  - Any others worth considering?
