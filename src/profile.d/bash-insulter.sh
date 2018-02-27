@@ -11,18 +11,7 @@ if [ "${SHELL}" = "/bin/bash" -o "${SHELL}" = "/bin/zsh" ]; then
 		GLOBAL_BASH_INSULTER=0
 	fi
 
-	# This script tests for numeric equality, so let's enforce that
-	if [ "${GLOBAL_BASH_INSULTER}" = "true" ]; then
-		GLOBAL_BASH_INSULTER=1
-	fi
-	if [ "${GLOBAL_BASH_INSULTER}" = "false" ]; then
-		GLOBAL_BASH_INSULTER=0
-	fi
-
-	# Whew... now that we're through all the crazy "let's figure
-	# out what the user mean" stuff, let's figure out whether or
-	# not to actually *enable* bash-insulter
-	if [ "${GLOBAL_BASH_INSULTER}" -gt 0 ]; then
+	if [ "${GLOBAL_BASH_INSULTER}" ]; then
 		[ -f /etc/bash.command-not-found-messages ] && . /etc/bash.command-not-found-messages
 		[ -f /etc/bash.command-not-found ] && . /etc/bash.command-not-found
 	fi
