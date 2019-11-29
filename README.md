@@ -34,13 +34,15 @@ noob@bender:~ $ sp aux
     # Method 2 - I don't care, insult me!
     sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/bash.command-not-found
 
-Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc` or any of the other locations where you can configure your shell automatically during login (zsh have different config files):
+Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc` or any of the other locations where you can configure your shell automatically during login:
 ```
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
 ```
 Login again and type some invalid commands for the effects to be visible.
+
+Note: You will have to add the script to `.zshrc` if you are using `zsh`
 
 # Configuration
 bash-insulter can be customized, or even be made polite and nice, by populating `CMD_NOT_FOUND_MSGS` or `CMD_NOT_FOUND_MSGS_APPEND` environment variables. The values should be arrays. `CMD_NOT_FOUND_MSGS` replaces the default messages, while `CMD_NOT_FOUND_MSGS_APPEND` appends more messages to the existing ones.
