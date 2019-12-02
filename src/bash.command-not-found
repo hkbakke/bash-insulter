@@ -79,7 +79,7 @@ print_message () {
     # little bit less.
     if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
         message=${messages[${RANDOM} % ${#messages[@]}]}
-        printf "\n  $(tput bold)$(tput setaf 1)${message}$(tput sgr0)\n\n"
+        printf "\n  $(tput bold)$(tput setaf 1)${message}$(tput sgr0)\n\n" >&2
     fi
 }
 
@@ -110,7 +110,7 @@ if function_exists command_not_found_handler; then
     fi
 else
     orig_command_not_found_handler () {
-        echo "zsh: command not found: $1"
+        printf "zsh: command not found: %s\n" "$1" >&2
         return 127
     }
 fi
@@ -130,7 +130,7 @@ if function_exists command_not_found_handle; then
     fi
 else
     orig_command_not_found_handle () {
-        echo "$0: $1: command not found"
+        printf "%s: %s: command not found\n" "$0" "$1" >&2
         return 127
     }
 fi
