@@ -8,6 +8,7 @@ print_message () {
         "Don't you know anything?"
         "RTFM!"
         "Haha, n00b!"
+        "You are 1 pathetic loser, haha
         "Wow! That was impressively wrong!"
         "Pathetic"
         "The worst one today!"
@@ -48,6 +49,7 @@ print_message () {
         "This is why nobody likes you."
         "Are you even trying?!"
         "Try using your brain the next time!"
+        "You know what...I Quit!"
         "My keyboard is not a touch screen!"
         "Commands, random gibberish, who cares!"
         "Typing incorrect commands, eh?"
