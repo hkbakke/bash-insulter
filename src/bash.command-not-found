@@ -4,6 +4,8 @@ print_message () {
     local message
 
     messages=(
+        "You should start using tik-tok"
+        "STFU!"
         "Boooo!"
         "Don't you know anything?"
         "RTFM!"
