@@ -1,9 +1,13 @@
+
+
 print_message () {
 
     local messages
     local message
 
     messages=(
+		"Cmon ${i} mistakes!?"
+		"u takin to me ?"
         "Boooo!"
         "Don't you know anything?"
         "RTFM!"
@@ -74,13 +78,38 @@ print_message () {
 
     # Seed RANDOM with an integer of some length
     RANDOM=$(od -vAn -N4 -tu < /dev/urandom)
+ 
 
-    # Print a randomly selected message, but only about half the time to annoy the user a
-    # little bit less.
-    if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
-        message=${messages[${RANDOM} % ${#messages[@]}]}
-        printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
+    if test -f "/etc/mistakes_counter.txt"; then
+		declare -i i=`cat /etc/mistakes_counter.txt` 
+	    rm "/etc/mistakes_counter.txt" 
+	    let "i++"
+		touch "/etc/mistakes_counter.txt" 
+	    echo $i >> "/etc/mistakes_counter.txt" 
+  
+    else
+	    touch "/etc/mistakes_counter.txt" 
+		declare -i i=1
+        echo $i >> "/etc/mistakes_counter.txt" 
+
     fi
+    
+
+	# Medium Mode
+    # Prints a randomly selected message, but only about half the time to annoy the user a
+    # little bit less.
+
+	if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
+        message=${messages[${RANDOM} % ${#messages[@]}]}
+        printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}" >&2
+		printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)Mistakes counter: ${i}$(tput sgr0)"    
+	fi
+
+    #Agressive Mode(Always displays an insult)
+    #message=${messages[${RANDOM} % ${#messages[@]}]}
+    #printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)${message}$(tput sgr0)" >&2
+    #printf "\\n  %s\\n\\n" "$(tput bold)$(tput setaf 1)Mistakes counter: ${i}$(tput sgr0)"
+
 }
 
 function_exists () {
