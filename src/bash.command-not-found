@@ -6,8 +6,7 @@ print_message () {
     local message
 
     messages=(
-		"Cmon ${i} mistakes!?"
-		"u takin to me ?"
+	"u takin to me ?"
         "Boooo!"
         "Don't you know anything?"
         "RTFM!"
