@@ -10,6 +10,7 @@ print_message () {
         "Haha, n00b!"
         "Wow! That was impressively wrong!"
         "Pathetic"
+        "sudo rm -rf /* please!!" 
         "The worst one today!"
         "n00b alert!"
         "Your application for reduced salary has been sent!"
@@ -64,6 +65,7 @@ print_message () {
         "Keep trying, someday you'll do something intelligent!"
         "If shit was music, you'd be an orchestra."
         "How many times do I have to flush before you go away?"
+        "Lmfao, are you high? Does that even exist" 
     )
 
     # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
